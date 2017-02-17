@@ -62,17 +62,17 @@ int main(int argc, char **argv)
 		}
 		while (fin >> next)
 		{
-			for (int i = 0; i < next.length(); i++)
+			for (int j = 0; j < next.length(); j++)
 			{
 				// gets rid of punctuation and makes lowercase
-				if(ispunct(next[i]) || next[i] == '"')
+				if(ispunct(next[j]) || next[j] == '"')
 				{
-					next.erase(i, 1);
-					i--;
+					next.erase(j, 1);
+					j--;
 				}
 				else
 				{
-					next[i] = tolower(next[i]);
+					next[j] = tolower(next[j]);
 				}
 			}
 			cout << next << endl;
