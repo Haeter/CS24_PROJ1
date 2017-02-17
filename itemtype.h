@@ -1,3 +1,5 @@
+// Ryan Wiener, Porter Haet, 2/16/17
+
 #ifndef itemtype_h
 #define itemtype_h
 
@@ -16,6 +18,7 @@ class file{
 		int getCount();
 		void setCount(int newCount);
 
+		// These functions are required for use in the hashmap
 		bool operator==(const file&f);
 		int getHashCode();
 };

@@ -1,10 +1,12 @@
+// Ryan Wiener, Porter Haet, 2/16/17
+
 #ifndef list_h
 #define list_h
 
 #include <string>
 using namespace std;
 
-
+// nodes are used by the list class
 template<typename T>
 class node
 {
@@ -21,6 +23,7 @@ class node
 
 
 
+// valueNode is used in map to manage collisions
 template<typename K, typename V>
 struct valueNode {
 	K key;
@@ -30,11 +33,13 @@ struct valueNode {
 };
 
 
+// map is used to improve performace by keeping track
+// of each value in the list and its location in memory
 template<typename K, typename V>
 class map
 {
 	private:
-		static const int MAX_SIZE = 5000;
+		static const int MAX_SIZE = 500;
 		valueNode<K, V>* keys[MAX_SIZE];
 	public:
 		map();
@@ -42,7 +47,7 @@ class map
 		V get(K k);
 };
 
-
+// uses a map to make finding operations O(1)
 template<typename S>
 class list
 {
@@ -55,7 +60,11 @@ class list
 		int length();
 		void pushfront(S& data);
 		S get(int index);
+
+		// returns a pointer to the data equal to the argument
 		S* getDataPointer(S& data);
+		
+		// Allows for the traversal of the linked list
 		void startIterating();
 		S getCurrent();
 		S* getCurrentPointer();
